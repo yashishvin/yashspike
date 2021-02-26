@@ -20,7 +20,7 @@ class OrdersView extends React.Component {
   render() {
     return (
       <ScrollView style={styles.mainContainer} contentContainerStyle={{ flexGrow: 11, justifyContent: 'center', alignItems: "center" }}>
-        <Text >This is the order page which will be viewed by the restraunt Staff </Text>
+        <Text >This is the order page which will be viewed by the restaurant Staff </Text>
       </ScrollView>
     );
   }
