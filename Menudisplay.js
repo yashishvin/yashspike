@@ -20,12 +20,12 @@ class Menudisplay extends React.Component {
     }
   }
   render() 
-      {console.log("the name of the dish is"+this.props.name);
+      {console.log("the name of the dish is "+this.props.name);
     return (
       <View>
          <Card>
-    <Card.Title><Text>The name of the dish is:{this.props.name}</Text></Card.Title>
-             <Text>The Status of the order is:{this.props.OrderStatus}</Text> 
+    <Card.Title><Text>The name of the dish is: {this.props.name}</Text></Card.Title>
+             <Text>Order Status: {this.props.OrderStatus}</Text> 
              <Image source={{uri:this.props.url}}
                />
      </Card>

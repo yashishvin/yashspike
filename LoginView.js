@@ -55,7 +55,7 @@ class LoginView extends React.Component{
   handleSignup() {
       console.log("this is the button to handle the signup press")
       this.props.navigation.navigate('SignUp');
-      console.log("we are naviagting")
+      console.log("we are navigating")
   }
 
   /**
@@ -67,7 +67,7 @@ class LoginView extends React.Component{
     return (
       <View style={styles.container}>
         <Text style={styles.bigText}>Badger Bytes</Text>
-        <Text>Welcome! Please login or signup to continue.</Text>
+        <Text>Welcome! Please log in or sign up to continue.</Text>
         <View style={styles.space} />
         <TextInput style={styles.input}
           underlineColorAndroid="transparent"
