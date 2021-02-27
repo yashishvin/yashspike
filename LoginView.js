@@ -18,7 +18,7 @@ class LoginView extends React.Component{
 
    // This is a mock api which needs to be replaced by the api which we create
   handleLogin() {
-    fetch('https://mysqlcs639.cs.wisc.edu/login', { // TODO Delete
+    fetch('https://mysqlcs639.cs.wisc.edu/login', {
       method: 'GET',
       headers: {
         'Authorization': 'Basic ' + base64.encode(this.state.username + ":" + this.state.password)
