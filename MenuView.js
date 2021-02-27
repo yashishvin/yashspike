@@ -16,7 +16,8 @@ class MenuView extends React.Component {
       Cost: 0.0,
       OrderStatus:"Order Placed",
       time:" ",
-      name:""
+      name:"",
+      activity:[]
     }
   }
 
@@ -33,25 +34,54 @@ class MenuView extends React.Component {
         this.GetInfo();
     })
    }*/
+   GetInfo()
+   { console.log("this is the get info method and it has been called")
+     fetch('https://mysqlcs639.cs.wisc.edu/activities', {
+       method: 'GET',
+       headers: {
+            'x-access-token': this.props.token 
+       }
+     })
+       .then(res => res.json())
+       .then(data => {
+            this.setState({activity:data.activities});
+          
+       });
+    
+      
+
+}
+
+
+
+
+
+
+
+   componentDidMount()
+    {
+       
+       this._navListener = this.props.navigation.addListener('focus', () => {
+           this.GetInfo();
+       })
+   
+
+
+
+   }
   
    
   
   fetch()
   {
-    var ar= {
-      Order:[{
-      "name":"MCD",
-      "URL":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.newfoodmagazine.com%2Fwp-content%2Fuploads%2Fmcdonalds-750x450.jpg&imgrefurl=https%3A%2F%2Fwww.newfoodmagazine.com%2Farticle%2F94705%2Fmcdonalds-joins-the-plant-revolution%2F&tbnid=sUnW8kemQ3BibM&vet=12ahUKEwiPvqPsnobvAhXCRawKHWVmBIUQMygDegUIARDXAQ..i&docid=YHQN16Ip8-Q9bM&w=750&h=450&q=mcdonalds&safe=active&ved=2ahUKEwiPvqPsnobvAhXCRawKHWVmBIUQMygDegUIARDXAQ",
-      "OrderStatus":'order placed'
-      }]
-    }
+    
     var c=[]
-    c=ar.Order
+    c=this.state.activity
     var i
     var disp=[]
     for (i in c)
     { 
-     disp.push(<Menudisplay username={this.props.username} name={c[i].name} url={c[i].URL} OrderStatus={c[i].OrderStatus} />)
+     disp.push(<Menudisplay username={this.props.username} name={c[i].name}  OrderStatus={c[i].duration} cost={c[i].calories}/>)
     }
 
    return disp;
@@ -79,3 +109,4 @@ const styles = StyleSheet.create({
   }
 });
 export default MenuView;
+
