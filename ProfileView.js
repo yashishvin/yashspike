@@ -117,8 +117,16 @@ class ProfileView extends React.Component {
         <Text style={{ textAlignVertical: "center", fontWeight: "700", fontSize: 20 }}>Personal Information</Text>
         <View style={styles.spaceSmall}></View>
         <View>
-          <Text style={{ textAlignVertical: "center", fontWeight: "700" }}>First Name</Text>
+          <Text style={{ textAlignVertical: "center", fontWeight: "700" }}>User Name</Text>
         </View>
+        <TextInput style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder={this.props.username}
+          placeholderTextColor="#d9bebd"
+          autoCapitalize="none" />
+        <View style={styles.spaceSmall}></View>
+        <Text style={{ textAlignVertical: "center", fontWeight: "700" }}>Password</Text>
+        <View style={styles.spaceSmall}></View>
         <TextInput style={styles.input}
           underlineColorAndroid="transparent"
           placeholder="Bucky"
@@ -126,10 +134,9 @@ class ProfileView extends React.Component {
           onChangeText={(firstName) => this.setState({ firstName: firstName })}
           value={this.state.firstName}
           autoCapitalize="none" />
-        <View style={styles.spaceSmall}></View>
-
+        
         <View>
-          <Text style={{ textAlignVertical: "center", fontWeight: "700" }}>Last Name</Text>
+          <Text style={{ textAlignVertical: "center", fontWeight: "700" }}>Address</Text>
         </View>
         <TextInput style={styles.input}
           underlineColorAndroid="transparent"
@@ -140,10 +147,9 @@ class ProfileView extends React.Component {
           autoCapitalize="none" />
         <View style={styles.spaceSmall}></View>
 
-        <Text style={{ textAlignVertical: "center", fontWeight: "700", fontSize: 20 }}>Fitness Goals</Text>
         <View style={styles.spaceSmall}></View>
         <View>
-          <Text style={{ textAlignVertical: "center", fontWeight: "700" }}>Daily Calories (kcal)</Text>
+          <Text style={{ textAlignVertical: "center", fontWeight: "700" }}>Phone Number</Text>
         </View>
         <TextInput style={styles.input}
           underlineColorAndroid="transparent"
@@ -153,51 +159,6 @@ class ProfileView extends React.Component {
           value={this.state.goalDailyCalories + ""}
           autoCapitalize="none" />
         <View style={styles.spaceSmall}></View>
-        <View>
-          <Text style={{ textAlignVertical: "center", fontWeight: "700" }}>Daily Protein (grams)</Text>
-        </View>
-        <TextInput style={styles.input}
-          underlineColorAndroid="transparent"
-          placeholder="52"
-          placeholderTextColor="#d9bebd"
-          onChangeText={(goalDailyProtein) => this.setState({ goalDailyProtein: goalDailyProtein })}
-          value={this.state.goalDailyProtein + ""}
-          autoCapitalize="none" />
-        <View style={styles.spaceSmall}></View>
-        <View>
-          <Text style={{ textAlignVertical: "center", fontWeight: "700" }}>Daily Carbs (grams)</Text>
-        </View>
-        <TextInput style={styles.input}
-          underlineColorAndroid="transparent"
-          placeholder="130"
-          placeholderTextColor="#d9bebd"
-          onChangeText={(goalDailyCarbohydrates) => this.setState({ goalDailyCarbohydrates: goalDailyCarbohydrates })}
-          value={this.state.goalDailyCarbohydrates + ""}
-          autoCapitalize="none" />
-        <View style={styles.spaceSmall}></View>
-        <View>
-          <Text style={{ textAlignVertical: "center", fontWeight: "700" }}>Daily Fat (grams)</Text>
-        </View>
-        <TextInput style={styles.input}
-          underlineColorAndroid="transparent"
-          placeholder="35"
-          placeholderTextColor="#d9bebd"
-          onChangeText={(goalDailyFat) => this.setState({ goalDailyFat: goalDailyFat })}
-          value={this.state.goalDailyFat + ""}
-          autoCapitalize="none" />
-        <View style={styles.spaceSmall}></View>
-        <View>
-          <Text style={{ textAlignVertical: "center", fontWeight: "700" }}>Daily Activity (mins)</Text>
-        </View>
-        <TextInput style={styles.input}
-          underlineColorAndroid="transparent"
-          placeholder="60"
-          placeholderTextColor="#d9bebd"
-          onChangeText={(goalDailyActivity) => this.setState({ goalDailyActivity: goalDailyActivity })}
-          value={this.state.goalDailyActivity + ""}
-          autoCapitalize="none" />
-        <View style={styles.spaceSmall}></View>
-
         <View style={styles.space} />
 
         <Text style={{ fontWeight: "700", fontSize: 20 }}>Looks good! All set?</Text>
@@ -205,8 +166,6 @@ class ProfileView extends React.Component {
 
         <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
           <Button color="#942a21" style={styles.buttonInline} title="Save Profile" onPress={() => this.handleSaveProfile()} />
-          <View style={styles.spaceHorizontal} />
-          <Button color="#a1635f" style={styles.buttonInline} title="Exit" onPress={() => this.backToLogin()} />
         </View>
         <View style={styles.space} />
       </ScrollView>
@@ -267,3 +226,4 @@ const styles = StyleSheet.create({
 });
 
 export default ProfileView;
+
