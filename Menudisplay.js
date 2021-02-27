@@ -17,8 +17,8 @@ class Menudisplay extends React.Component {
     this.state = {
       firstName: "",
       lastName: "",
-      url:this.props.url,
-      time:"1735"
+      time:"1735",
+      url:"https://www.youtube.com/watch?v=zhzVF8Yo9aQ"
     }
   
   }
@@ -34,9 +34,9 @@ class Menudisplay extends React.Component {
       <View>
          <Card>
     <Card.Title><Text>{this.props.name}</Text></Card.Title>
-             <Text>The Status of the order is:{this.props.OrderStatus}</Text> 
+             <Text>The Status of the order in minutes is:{this.props.OrderStatus}</Text> 
              <View style={styles.space} />
-              <Text>The Cost of the item is:</Text>
+              <Text>The Cost of the item is:{this.props.cost}</Text>
               <View style={styles.space} />
               <Text>Enter the delivery time below:</Text>
               <View style={styles.space} />
@@ -93,3 +93,4 @@ const styles = StyleSheet.create({
 });
 
 export default Menudisplay;
+
