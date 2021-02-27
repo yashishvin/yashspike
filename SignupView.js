@@ -16,11 +16,9 @@ class SignupView extends React.Component {
   }
  
   handleCreateAccount() {
-    if(this.state.Permission!="Admin"||this.state.Permission!="Staff"||this.state.Permission!="User")
+    if(this.state.Permission =="Admin"|| this.state.Permission == "Staff"|| this.state.Permission == "User")
     {
-      alert("You have entered an incorret permission");
-    }
-    fetch('https://mysqlcs639.cs.wisc.edu/users', {
+      fetch('https://mysqlcs639.cs.wisc.edu/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -37,6 +35,12 @@ class SignupView extends React.Component {
           alert(JSON.stringify(res.message));
         }
       });
+      
+    }
+    else {
+      alert("You have entered an incorret permission");
+    }
+    
   }
 
   /**
