@@ -1,3 +1,4 @@
+import Mainsignin from './Mainsignin'
 import React from 'react';
 import LoginView from './LoginView';
 import SignupView from './SignupView';
@@ -16,11 +17,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       accessToken: undefined,
-      username: undefined
+      username: undefined,
+      permission: undefined
     }
 
     this.login = this.login.bind(this);
     this.revokeAccessToken = this.revokeAccessToken.bind(this);
+    this.setpermission=this.setpermission.bind(this);
   }
 
   /**
@@ -30,9 +33,15 @@ class App extends React.Component {
   login(username, accessToken) {
     this.setState({
       username: username,
-      accessToken: accessToken
+      accessToken: accessToken,
+      
     });
     console.log("the state to which the token is being set to is"+accessToken);
+  }
+  setpermission(permission)
+  { console.log("the permission function has been executed")
+     this.setState({permission:permission})
+    console.log("the state of the permission is"+this.state.permission)
   }
 
   revokeAccessToken() {
@@ -55,13 +64,21 @@ class App extends React.Component {
         <AuthStack.Navigator>
           {
             <>
+            <AuthStack.Screen
+                name="mainsignin"
+                options={{
+                  title: 'Badger Bytes',
+                }}
+              >
+                {(props) => <Mainsignin {...props} setpermission={this.setpermission} />}
+              </AuthStack.Screen>
               <AuthStack.Screen
                 name="SignIn"
                 options={{
                   title: 'Badger Bytes Signin Page',
                 }}
               >
-                {(props) => <LoginView {...props} login={this.login} />}
+                {(props) => <LoginView {...props} login={this.login} permission={this.state.permission} />}
               </AuthStack.Screen>
 
               <AuthStack.Screen

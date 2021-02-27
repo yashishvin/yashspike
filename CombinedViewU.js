@@ -22,7 +22,7 @@ class CombinedViewU extends React.Component
   //Three tabs are defined here the first tab being for viewing the given menu code for this can be found in MenuView.js
   //The second tab for viewing the order details this can be found in OrderView.js
   //The third tab for viewing and editing the profile this can be found in ProfileView.js
-     console.log("the combine view for the user has been called")
+     
     const TabNavigation = createBottomTabNavigator();
      return(
       <TabNavigation.Navigator

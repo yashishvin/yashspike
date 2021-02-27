@@ -1,3 +1,4 @@
+import Orderdisplay from './Orderdisplay'
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -17,6 +18,25 @@ class OrderView extends React.Component {
       
     }
   }
+  fetch()
+  {// the component responsible for getting the data
+    var ar= {
+      Order:[{
+      "name":"MCD",
+      "OrderStatus":'order placed'
+      }]
+    }
+    console.log("the fetch method for the order has been executed")
+    var c=[]
+    c=ar.Order
+    var i
+    var disp=[]
+    for (i in c)
+    { 
+     disp.push(<Orderdisplay name={c[i].name} OrderStatus={c[i].OrderStatus}/>)
+    }
+     return disp;
+ }
 
   /**
    * The fetch request of the data from the endpoint order will be done in the following method
@@ -35,6 +55,7 @@ class OrderView extends React.Component {
     return (
       <ScrollView style={styles.mainContainer} contentContainerStyle={{ flexGrow: 11, justifyContent: 'center', alignItems: "center" }}>
         <Text >This is the page to view your order</Text>
+        {this.fetch()}
       </ScrollView>
     );
   }

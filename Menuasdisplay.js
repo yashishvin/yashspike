@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { Dimensions } from 'react-native';
 import { Card, ListItem} from 'react-native-elements';
 //This component is responsible for the components to be displayed on the menu page
-class Menudisplay extends React.Component {
+class Menuasdisplay extends React.Component {
 
   /**
    * Specifies the default values that will be shown for a split second
@@ -17,40 +17,46 @@ class Menudisplay extends React.Component {
     this.state = {
       firstName: "",
       lastName: "",
-      url:this.props.url,
-      time:"1735"
+      url:"https://www.youtube.com/watch?v=zhzVF8Yo9aQ",
+      name:this.props.name,
+      cost:this.props.cost
+      
     }
   
   }
-  placeorder(itemname,time)
-   {console.log("the button has been pressed and the properties are as follows")
-     console.log(itemname);
-     console.log(time);
-     //post request to be added here
-    }
+  deleteitem()
+  {
+    console.log("the delete function in the admin staff view has been called has been called")
+
+
+  }
+ 
   render() 
-      {
+      {console.log("the render method here is executed")
     return (
       <View>
          <Card>
     <Card.Title><Text>{this.props.name}</Text></Card.Title>
-             <Text>The Status of the order is:{this.props.OrderStatus}</Text> 
-             <View style={styles.space} />
-              <Text>The Cost of the item is:</Text>
-              <View style={styles.space} />
-              <Text>Enter the delivery time below:</Text>
-              <View style={styles.space} />
-              <TextInput style={styles.input}
+             <Text>The Name of the Dish is</Text> 
+             <TextInput style={styles.input}
              underlineColorAndroid="transparent"
-              placeholder="Time for delivery"
+             placeholder="name of the dish"
              placeholderTextColor="#992a20"
-             onChangeText={(time) => this.setState({time:time})}
-             value={this.state.time}
+             onChangeText={(name) => this.setState({name:name})}
+             value={this.props.name}
              autoCapitalize="none" />
              <View style={styles.space} />
-             <Text>View the image by following the url:</Text>
-             <View style={styles.space} />
-             <TextInput style={styles.input}
+              <Text>The Cost of the item is</Text>
+              <TextInput style={styles.input}
+             underlineColorAndroid="transparent"
+             placeholder="Cost of the item"
+             placeholderTextColor="#992a20"
+             onChangeText={(cost) => this.setState({cost:cost})}
+             value={this.props.cost}
+             autoCapitalize="none" />
+              <View style={styles.space} />
+              <View style={styles.space} />
+              <TextInput style={styles.input}
              underlineColorAndroid="transparent"
              placeholder="image url"
              placeholderTextColor="#992a20"
@@ -58,8 +64,9 @@ class Menudisplay extends React.Component {
              value={this.state.url}
              autoCapitalize="none" />
              <View style={styles.space} />
-              <Button color="#942a21" style={styles.buttonInline} title="Place Order" onPress={this.placeorder.bind(this.props.name,this.state.time)}/>
+              <Button color="#942a21" style={styles.buttonInline} title="Remove item from menu" onPress={this.deleteitem.bind()}/>
               <View style={styles.space} />
+              
                </Card>
        </View>
     );
@@ -72,8 +79,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   buttonInline: {
-  
-    width: 200,
+      width: 200,
       padding: 10,
       margin: 5,
       height: 40,
@@ -92,4 +98,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Menudisplay;
+export default Menuasdisplay;

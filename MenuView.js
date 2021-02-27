@@ -14,7 +14,9 @@ class MenuView extends React.Component {
       Nameoftheitem: "",
       url: "",
       Cost: 0.0,
-      OrderStatus:"Order Placed"
+      OrderStatus:"Order Placed",
+      time:" ",
+      name:""
     }
   }
 
@@ -32,7 +34,7 @@ class MenuView extends React.Component {
     })
    }*/
   
-
+   
   
   fetch()
   {
@@ -48,16 +50,17 @@ class MenuView extends React.Component {
     var i
     var disp=[]
     for (i in c)
-    { console.log("this has been executed");
-     disp.push(<Menudisplay name={c[i].name} url={c[i].URL} OrderStatus={c[i].OrderStatus}/>)
+    { 
+     disp.push(<Menudisplay username={this.props.username} name={c[i].name} url={c[i].URL} OrderStatus={c[i].OrderStatus} />)
     }
 
    return disp;
   }
+ 
   render() {
     return (
-      <ScrollView style={styles.mainContainer} >
-         <Text>This is the Menu</Text>
+      <ScrollView style={styles.mainContainer} contentContainerStyle={{ flexGrow: 11, justifyContent: 'center', alignItems: "center" }}>
+         <Text style={styles.text}>This is the Menu</Text>
          {this.fetch()}
       </ScrollView>
     );
@@ -65,10 +68,14 @@ class MenuView extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  
-  mainContainer: {
+   mainContainer: {
     flex: 1
   },
+  text:
+  {
+    alignItems: 'center',
+    fontWeight: 'bold',
+    fontSize: 20
+  }
 });
-
 export default MenuView;

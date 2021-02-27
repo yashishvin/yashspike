@@ -16,11 +16,11 @@ class SignupView extends React.Component {
   }
  
   handleCreateAccount() {
-    
-    if(this.state.Permission =="Admin"||this.state.Permission =="Staff"||this.state.Permission =="User")
+    if(this.state.Permission!="Admin"||this.state.Permission!="Staff"||this.state.Permission!="User")
     {
-
-      fetch('https://mysqlcs639.cs.wisc.edu/users', {
+      alert("You have entered an incorret permission");
+    }
+    fetch('https://mysqlcs639.cs.wisc.edu/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -37,11 +37,6 @@ class SignupView extends React.Component {
           alert(JSON.stringify(res.message));
         }
       });
-      
-    }
-    else {
-      alert("You have entered an incorret permission");  
-    }
   }
 
   /**
@@ -61,7 +56,6 @@ class SignupView extends React.Component {
         <Text style={styles.bigText}>Badger Bytes</Text>
         <Text>New here? Let's get started!</Text>
         <Text>Please create an account below.</Text>
-        <Text>While filling out Permissions please be sure to only enter either User,Admin or Staff other entries are invalid</Text>
         <View style={styles.space} />
         <TextInput style={styles.input}
           underlineColorAndroid="transparent"
@@ -76,14 +70,6 @@ class SignupView extends React.Component {
           placeholder="Password"
           onChangeText={(password) => this.setState({ password: password })}
           value={this.state.password}
-          placeholderTextColor="#992a20"
-          autoCapitalize="none" />
-          <TextInput style={styles.input}
-          secureTextEntry={true}
-          underlineColorAndroid="transparent"
-          placeholder="Permission"
-          onChangeText={(Permission) => this.setState({ Permission: Permission})}
-          value={this.state.Permission}
           placeholderTextColor="#992a20"
           autoCapitalize="none" />
         <View style={styles.space} />

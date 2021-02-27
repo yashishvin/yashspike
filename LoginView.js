@@ -8,7 +8,7 @@ class LoginView extends React.Component{
     this.state = {
       username: "",
       password: "",
-      permission: "User"//this needs to be set from the api 
+      permission: "Admin"//this needs to be set from the api 
     }
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -30,15 +30,15 @@ class LoginView extends React.Component{
           this.props.login(this.state.username, res.token);
           //Code needed to be added to set the state of permission from the api 
           //check the permissions that the user has and navigate accordingly
-          if(this.state.permission=="User")
-          {console.log("the user page has been executed")
+          if(this.props.permission=="User")
+          {console.log("the user page has been executed in login")
           this.props.navigation.navigate('UserView');
           }
-          else if(this.state.permission=="Admin")
+          else if(this.props.permission=="Admin")
           {console.log("this is the page for the admin which is being executed")
           this.props.navigation.navigate('AdminView');
           }
-          else if(this.state.permission=="Staff")
+          else if(this.props.permission=="Staff")
           {
            console.log("this is the staff page")
            this.props.navigation.navigate('StaffView');
@@ -55,7 +55,7 @@ class LoginView extends React.Component{
   handleSignup() {
       console.log("this is the button to handle the signup press")
       this.props.navigation.navigate('SignUp');
-      console.log("we are navigating")
+      console.log("we are naviagting")
   }
 
   /**
@@ -67,7 +67,7 @@ class LoginView extends React.Component{
     return (
       <View style={styles.container}>
         <Text style={styles.bigText}>Badger Bytes</Text>
-        <Text>Welcome! Please log in or sign up to continue.</Text>
+        <Text>Welcome! Please login or signup to continue.</Text>
         <View style={styles.space} />
         <TextInput style={styles.input}
           underlineColorAndroid="transparent"
